@@ -3,15 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HardwareComponent } from './hardware/hardware.component';
+import { HardwareDetailComponent } from './hardware-detail/hardware-detail.component';
+import { AppRoutingModule } from './app-routing.module';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HardwareComponent
+    HardwareComponent,
+    HardwareDetailComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
