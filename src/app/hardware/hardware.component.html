@@ -1,17 +1,12 @@
-
-
-
 <h1>Popis opreme</h1>
 <ul>
-  <li *ngFor="let hardware of hardwares"
-      (click)="onSelect(hardware)"
-      [class.selected]="hardware === selectedHardware">
-    <span>{{hardware.name}}</span> {{hardware.price}} HRK
+  <li *ngFor="let hardware of hardwares">
+     <div [routerLink]="['/hardware',hardware.code]"> <span>{{hardware.name}}</span> {{hardware.price}} HRK</div><button type="button" (click)="deleteHardware(hardware)">X</button>
 
   </li>
 </ul>
 
-<app-hardware-detail [hardware]="selectedHardware"></app-hardware-detail>
+
 
 
 

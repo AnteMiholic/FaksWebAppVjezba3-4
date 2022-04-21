@@ -17,6 +17,7 @@ export class HardwareComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getHardwares();
+    //this.deleteHardware( {name: "Genious MK-500 Mechanical", price: 200, code:'123456789'})
   }
   onSelect(hardware: Hardware): void{
     this.selectedHardware = hardware;
@@ -25,5 +26,9 @@ export class HardwareComponent implements OnInit {
   private getHardwares() {
     this.hardwareService.getHardwares()
       .subscribe(hardwares => this.hardwares = hardwares)
+  }
+  deleteHardware(hardware: Hardware){
+    this.hardwareService.deleteHardware(hardware)
+      .subscribe(pkr => this.getHardwares())
   }
 }

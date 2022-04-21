@@ -1,5 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Hardware} from "../hardware/hardware";
+import {HardwareService} from "../hardware/hardware.service";
+import {ActivatedRoute} from "@angular/router";
+
 
 @Component({
   selector: 'app-hardware-detail',
@@ -8,11 +11,20 @@ import {Hardware} from "../hardware/hardware";
 })
 export class HardwareDetailComponent implements OnInit {
 
-  @Input() hardware: Hardware | undefined;
+  hardware: Hardware | undefined;
 
-  constructor() { }
+  constructor(
+    private hardwareService: HardwareService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.getHardware();
   }
 
+  private getHardware() {
+    const code = String(this.route.snapshot.paramMap.get('code'))
+    this.hardwareService.getHardwareByCode(code)
+      .subscribe(hardwares => this.hardware = hardwares)
+  }
 }
