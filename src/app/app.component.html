@@ -1,15 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Untitled</title>
+  <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/fonts/fontawesome-all.min.css">
+  <link rel="stylesheet" href="/assets/fonts/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/fonts/fontawesome5-overrides.min.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 
 <body>
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/hardware">Hardware</a>
-</nav>
-
-<router-outlet></router-outlet>
-
+<div class="container-fluid">
+  <div class="row row flex-nowrap">
+    <div class="col col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+      <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100"><a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none"><span class="fs-5 d-none d-sm-inline">Hardware Admin</span></a>
+        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+          <li class="nav-item"><a href="#" class="nav-link align-middle px-0"><i class="fa fa-home fs-4 bi-house"></i><span class="ms-1 d-none d-sm-inline">Home</span></a></li>
+          <li class="nav-item"><a routerLink="newhardware" class="nav-link align-middle px-0"><i class="fas fa-folder-plus fs-4 bi-house"></i><span class="ms-1 d-none d-sm-inline">Novi hardware</span></a></li>
+          <li class="nav-item"><a routerLink="hardware" class="nav-link align-middle px-0"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-window-desktop fs-4 bi-house">
+            <path fill-rule="evenodd" d="M1 3.357C1 2.612 1.611 2 2.375 2h11.25C14.389 2 15 2.612 15 3.357V4H1v-.643ZM1 5h14v7.643c0 .745-.611 1.357-1.375 1.357H2.375A1.366 1.366 0 0 1 1 12.643V5Zm1.375-4A2.366 2.366 0 0 0 0 3.357v9.286A2.366 2.366 0 0 0 2.375 15h11.25A2.366 2.366 0 0 0 16 12.643V3.357A2.366 2.366 0 0 0 13.625 1H2.375ZM3.5 11a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-9Z"></path>
+          </svg><span class="ms-1 d-none d-sm-inline">Lista hardwarea</span></a></li>
+        </ul>
+        <hr>
+        <div class="dropdown pb-4"><a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false"><i class="far fa-user fs-3"></i><span class="d-none d-sm-inline mx-1">Ante Miholić</span></a>
+          <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col py-3"><router-outlet></router-outlet></div>
+  </div>
+</div>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
+</html>

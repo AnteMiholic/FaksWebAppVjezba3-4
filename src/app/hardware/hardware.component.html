@@ -1,9 +1,71 @@
 <h1>Popis opreme</h1>
 <ul>
   <li *ngFor="let hardware of hardwares">
-     <div [routerLink]="['/hardware',hardware.code]"> <span>{{hardware.name}}</span> {{hardware.price}} HRK</div><button type="button" (click)="deleteHardware(hardware)">X</button>
+     <span [routerLink]="['/hardware',hardware.code]"> <span>{{hardware.name}}</span> {{hardware.price}} HRK</span><button type="button" (click)="deleteHardware(hardware)">X</button>
 
   </li>
+  <div class="row">
+    <div class="col-10 col-sm-10 col-md-10 col-lg-10 offset-1 offset-sm-1 offset-md-1 offset-lg-1">
+      <div id="contact">
+        <div class="container">
+          <div class="intro">
+            <h1>UNESI NOVI HARDWARE</h1>
+          </div>
+          <form>
+          <div class="messages"></div>
+          <div class="controls">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group mb-3"><label class="form-label" for="form_name">Ime</label><input #hardwareName class="form-control" type="text" id="form_name" data-error="Treba unijeti ime hardwarea!" name="name" required="" placeholder="Unesite ime hardwarea">
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group mb-3"><label class="form-label" for="form_lastname">Šifra</label><input #hardwareCode class="form-control" type="text" id="form_lastname" data-error="Treba unijeti šifru hardwarea!" name="lastname" required="" placeholder="Unesite šifru hardwarea">
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group mb-3"><label class="form-label" for="form_email">Cijena</label><input #hardwarePrice class="form-control" type="number" id="form_email" data-error="Treba unijeti cijenu hardwarea!" name="email" required="" placeholder="Unesite cijenu hardwarea">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group mb-3"><label class="form-label">Tip</label><select #hardwareType class="form-select">
+                <optgroup label="Popis tipova">
+                  <option value="CPU" selected="">CPU</option>
+                  <option value="GPU">GPU</option>
+                  <option value="MBO">MBO</option>
+                  <option value="STORAGE">STORAGE</option>
+                  <option value="HOUSING">HOUSING</option>
+                  <option value="OTHER">OTHER</option>
+                </optgroup>
+              </select>
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group mb-3"><label class="form-label" for="form_message">Količina</label><input #hardwareAmount class="form-control" type="number" id="form_message" data-error="Treba unijeti količinuhardwarea!" rows="4" name="message" required="" placeholder="Unesite količinu hardwarea">
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+            <div class="col-md-12"><button (click)="add(hardwareName.value, hardwareCode.value, +hardwarePrice.value,
+hardwareType.value, +hardwareAmount.value);"
+                                           class="btn btn-success btn-send" value="send" type="submit">Pošalji </button></div>
+          </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 </ul>
 
 

@@ -8,11 +8,13 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HardwareComponent,
     HardwareDetailComponent
+
   ],
   imports: [
     BrowserModule,

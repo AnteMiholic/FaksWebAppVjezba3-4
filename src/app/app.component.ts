@@ -8,4 +8,7 @@ import {Component} from '@angular/core';
 export class AppComponent{
   title = 'vjezba3';
 
+  scrollTo(element: any)  {
+    (document.getElementById(element) as HTMLElement).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+  }
 }

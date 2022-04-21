@@ -10,7 +10,7 @@ import {HardwareService} from "./hardware.service";
 export class HardwareComponent implements OnInit {
 
   title = 'xd';
-  hardwares: Hardware[] | undefined;
+  hardwares: Hardware[] = [];
   selectedHardware: Hardware | undefined;
 
   constructor(private hardwareService: HardwareService) {
@@ -30,5 +30,15 @@ export class HardwareComponent implements OnInit {
   deleteHardware(hardware: Hardware){
     this.hardwareService.deleteHardware(hardware)
       .subscribe(pkr => this.getHardwares())
+  }
+  add(name: string, code: string, price: number, type: string, amount: number): void {
+    name = name.trim();
+    code = code.trim();
+    if (!name || ! code || !price || !amount) { return; }
+    this.hardwareService.addHardware({ name, code, price, type, amount } as Hardware)
+      .subscribe(h => {
+        this.hardwares.push(h);
+      });
+
   }
 }
